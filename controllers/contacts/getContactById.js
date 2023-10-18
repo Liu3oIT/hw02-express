@@ -3,8 +3,8 @@ const requestError = require("../../helpers/requestError");
 
 const getContactById = async (req, res, next) => {
   try {
-    const { contactId } = req.params;
-    const resolve = await Contact.findOne(contactId);
+    const { id } = req.params;
+    const resolve = await Contact.findOne(id);
 
     if (!resolve) {
       throw requestError(400);
