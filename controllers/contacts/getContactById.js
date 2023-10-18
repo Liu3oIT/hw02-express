@@ -1,10 +1,10 @@
-const contacts = require("../../models/contacts");
+const Contact = require("../../models/contact");
 const requestError = require("../../helpers/requestError");
 
 const getContactById = async (req, res, next) => {
   try {
     const { contactId } = req.params;
-    const resolve = await contacts.getContactById(contactId);
+    const resolve = await Contact.findOne(contactId);
 
     if (!resolve) {
       throw requestError(400);
