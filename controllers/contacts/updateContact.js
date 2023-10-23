@@ -8,7 +8,12 @@ const updateContact = async (req, res, next) => {
     //   throw requestError(400, error.message);
     // }
     const { id } = req.params;
-    const resolve = await Contacts.findOneAndUpdate({ _id: id }, req.body);
+    const { _id: owner } = req.user;
+    const resolve = await Contacts.findOneAndUpdate(
+      { _id: id },
+      req.body,
+      owner
+    );
     res.status(200).json(resolve);
   } catch (error) {
     next(error);

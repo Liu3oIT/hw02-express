@@ -11,9 +11,10 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Set password for user"],
     },
-    contacts: {
-      type: [Types.ObjectId],
-      rel: "contact",
+    subscription: {
+      type: String,
+      enum: ["starter", "pro", "business"],
+      default: "starter",
     },
     token: {
       type: String,
