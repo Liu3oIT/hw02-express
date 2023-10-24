@@ -4,7 +4,8 @@ const requestError = require("../../helpers/requestError");
 const getContactById = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const resolve = await Contact.findOne({_id: id});
+     const { _id: owner } = req.user;
+    const resolve = await Contact.findOne({_id: id}, owner);
 
     if (!resolve) {
       throw requestError(400);
