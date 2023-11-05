@@ -4,6 +4,7 @@ const listContacts = require("./listContacts");
 const removeContact = require("./removeContact");
 const updateContact = require("./updateContact");
 const updateFavorite = require("./favorite");
+const uploadImage = require("../user/uploadImage");
 
 module.exports = {
   addContact,
@@ -12,4 +13,5 @@ module.exports = {
   removeContact,
   updateContact,
   updateFavorite,
+  uploadImage,
 };
